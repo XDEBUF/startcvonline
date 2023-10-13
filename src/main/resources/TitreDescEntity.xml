@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.startcv.entities.TitreDescEntity">
+        <table name="titre_desc" schema="public" catalog="cvonline"/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="titre">
+                <column name="titre"/>
+            </basic>
+            <basic name="description">
+                <column name="description" nullable="false"/>
+            </basic>
+            <basic name="competencesId">
+                <column name="competences_id" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="contentId">
+                <column name="content_id" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="imagesId">
+                <column name="images_id" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="sitesId">
+                <column name="sites_id" nullable="false" precision="-1"/>
+            </basic>
+            <many-to-one name="competencesByCompetencesId" optional="true"
+                         target-entity="com.startcv.entities.CompetencesEntity">
+                <join-column name="competences_id" nullable="false" referenced-column-name="competences_id"/>
+            </many-to-one>
+            <many-to-one name="contentByContentId" optional="true" target-entity="com.startcv.entities.ContentEntity">
+                <join-column name="content_id" nullable="false" referenced-column-name="content_id"/>
+            </many-to-one>
+            <many-to-one name="imagesByImagesId" optional="true" target-entity="com.startcv.entities.ImagesEntity">
+                <join-column name="images_id" nullable="false" referenced-column-name="id_image"/>
+            </many-to-one>
+            <many-to-one name="sitesBySitesId" optional="true" target-entity="com.startcv.entities.SitesEntity">
+                <join-column name="sites_id" nullable="false" referenced-column-name="site_id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

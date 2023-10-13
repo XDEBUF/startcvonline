@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.startcv.entities.ContentEntity">
+        <table name="Content" schema="public" catalog="cvonline"/>
+        <attributes>
+            <id name="contentId">
+                <column name="content_id" precision="-1"/>
+            </id>
+            <basic name="publiable">
+                <column name="publiable" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="category">
+                <column name="category" nullable="false"/>
+            </basic>
+            <one-to-many name="competencesByContentId" mapped-by="contentByContentId"
+                         target-entity="com.startcv.entities.CompetencesEntity"/>
+            <one-to-many name="imagesByContentId" mapped-by="contentByContentId"
+                         target-entity="com.startcv.entities.ImagesEntity"/>
+            <one-to-many name="sitesByContentId" mapped-by="contentByContentId"
+                         target-entity="com.startcv.entities.SitesEntity"/>
+            <one-to-many name="titreDescsByContentId" mapped-by="contentByContentId"
+                         target-entity="com.startcv.entities.TitreDescEntity"/>
+            <one-to-one name="intervalsDatesByContentId" optional="true" mapped-by="contentByIntervalsDateId"
+                        target-entity="com.startcv.entities.IntervalsDatesEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>
