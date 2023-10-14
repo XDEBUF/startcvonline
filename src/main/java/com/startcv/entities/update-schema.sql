@@ -1,0 +1,11 @@
+DROP TABLE CompetencesEntity CASCADE;
+
+DROP TABLE ContentEntity CASCADE;
+
+DROP TABLE ImagesEntity CASCADE;
+
+DROP TABLE IntervalsDatesEntity CASCADE;
+
+DROP TABLE SitesEntity CASCADE;
+
+DROP TABLE TitreDescEntity CASCADE;
