@@ -2,6 +2,7 @@ package com.startcv.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -13,7 +14,13 @@ public class CompetencesEntity {
     private Integer contentId;
     private ContentEntity contentByContentId;
     private Collection<TitreDescEntity> titreDescsByCompetencesId;
+    protected CompetencesEntity(){
 
+    }
+
+    public CompetencesEntity(boolean a){
+        titreDescsByCompetencesId = new ArrayList<TitreDescEntity>();
+    }
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "competences_id", nullable = false)

@@ -2,12 +2,14 @@ package com.startcv.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 @Table(name = "Content", schema = "public", catalog = "cvonline")
 public class ContentEntity {
+
     private int contentId;
     private Boolean publiable;
     private String category;
@@ -16,7 +18,13 @@ public class ContentEntity {
     private IntervalsDatesEntity intervalsDatesByContentId;
     private Collection<SitesEntity> sitesByContentId;
     private Collection<TitreDescEntity> titreDescsByContentId;
-
+    protected ContentEntity(){}
+    public ContentEntity(boolean a){
+        competencesByContentId = new ArrayList<CompetencesEntity>();
+        imagesByContentId = new ArrayList<ImagesEntity>();
+        sitesByContentId = new ArrayList<SitesEntity>();
+        titreDescsByContentId = new ArrayList<TitreDescEntity>();
+    }
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "content_id", nullable = false)
