@@ -1,18 +1,16 @@
 package com.startcv.services;
 
-import com.startcv.entities.ContentEntity;
-import com.startcv.repositories.ContentRepositoryInterface;
+import com.startcv.repositories.IContentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 @Service
 public class ContentService {
     @Autowired
-    ContentRepositoryInterface contentRepository;
+    IContentRepository contentRepository;
 
-    public ContentRepositoryInterface getContentRepository() {
+    public IContentRepository getContentRepository() {
         return this.contentRepository;
     }
-    public void saveContent(ContentEntity content) {
-       this.getContentRepository().save(content);
-    }
+
 }

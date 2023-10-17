@@ -1,9 +1,9 @@
 package com.startcv.repositories;
 
-import com.startcv.entities.ContentEntity;
+import com.startcv.entities.ImagesEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ContentRepositoryInterface extends JpaRepository<ContentEntity, Long> {
+public interface IImageRepository extends JpaRepository<ImagesEntity, Long> {
 }

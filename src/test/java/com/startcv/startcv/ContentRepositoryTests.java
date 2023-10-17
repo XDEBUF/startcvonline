@@ -1,7 +1,7 @@
 package com.startcv.startcv;
 
 import com.startcv.entities.*;
-import com.startcv.repositories.ContentRepositoryInterface;
+import com.startcv.repositories.IContentRepository;
 import com.startcv.services.ContentService;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +20,7 @@ public class ContentRepositoryTests {
         @InjectMocks
         private ContentService contentService;
         @Mock
-        private ContentRepositoryInterface contentRepository;
+        private IContentRepository contentRepository;
     @Test
     @DisplayName("Test la création d'un contenu")
     public void create() {

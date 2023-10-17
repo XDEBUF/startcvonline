@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Content", schema = "public", catalog = "cvonline")
+@Table(name = "content", schema = "public", catalog = "cvonline")
 public class ContentEntity {
 
     private int contentId;
