@@ -26,60 +26,58 @@ public class ContentRepositoryTests {
     public void create() {
 
         contentService = new ContentService();
-        ContentEntity content = new ContentEntity(true);
+        Content content = new Content();
         content.setCategory("Formation");
         content.setPubliable(Boolean.TRUE);
 
-        TitreDescEntity titreimg1 = new TitreDescEntity();
-        titreimg1.setTitre("image google site");
-        titreimg1.setDescription("Un essai de publication d'image");
 
-        ImagesEntity image1 = new ImagesEntity(true);
-        image1.setUrlImg("http://www.google.com");
-        titreimg1.setImagesId(image1.getIdImage());
-        image1.getTitreDescsByIdImage().add(titreimg1);
-        image1.setContentId(content.getContentId());
 
-        TitreDescEntity titreComp1 = new TitreDescEntity();
-        titreComp1.setTitre("Java");
-        titreComp1.setDescription("ce site est réalisé en JAVA pour la partie BACKEND");
+        Image image1 = new Image();
+        image1.setUrlImg("http://www.picasa.com");
+        image1.setContent(content);
 
-        CompetencesEntity cp1 = new CompetencesEntity(true);
-        titreComp1.setCompetencesId(cp1.getCompetencesId());
-        cp1.getTitreDescsByCompetencesId().add(titreComp1);
-        cp1.setContentId(content.getContentId());
 
-        TitreDescEntity titreSite1 = new TitreDescEntity();
-        titreSite1.setTitre("new site");
-        titreSite1.setDescription("un essai de site");
-
-        SitesEntity st1 = new SitesEntity(true);
-        titreSite1.setSitesId(st1.getSiteId());
+        Competence cp1 = new Competence();
+        Site st1 = new Site();
         st1.setUrlSite(("http://google.com"));
-        st1.getTitreDescsBySiteId().add(titreSite1);
-        st1.setContentId(content.getContentId());
+        st1.setContent(content);
 
-        IntervalsDatesEntity ide1 = new IntervalsDatesEntity();
-        ide1.setDateDebut(Date.valueOf("2001-01-01"));
+        IntervalsDate ide1 = new IntervalsDate();
+        ide1.setDateDebut(Date.valueOf("2011-01-01").toLocalDate());
         ide1.setEnCours(Boolean.TRUE);
-        ide1.setContentId(content.getContentId());
+        ide1.setContent(content);
 
-        TitreDescEntity titreContent1 = new TitreDescEntity();
-        titreContent1.setTitre("Formation JAVA");
-        titreContent1.setDescription("Un essai de publication de contenu");
-        content.getImagesByContentId().add(image1);
-        content.getTitreDescsByContentId().add(titreContent1);
-        content.getCompetencesByContentId().add(cp1);
-        content.getSitesByContentId().add(st1);
         contentRepository.save(content);
-
+        String res = content.getId()+" "+
+        content.getCategory()+" "+
+        content.getPubliable()+" ";
+        System.out.println(res);
     }
+    /*@Test
+    @DisplayName("Test la création d'un contenu")
+    public void display(){
+        Conten content = new Conten(true);
+            content.getContentId();
+            content.getCategory();
+            content.getPubliable();
+            content.getIntervalsDatesByContentId().getDateDebut();
+            content.getIntervalsDatesByContentId().getDateFin();
+            content.getIntervalsDatesByContentId().getEnCours();
+            content.getSitesByContentId();
+            content.getImagesByContentId().toArray();
+            content.getCompetencesByContentId().toArray();
+            content.getTitreDescsByContentId().toArray();
+    }*/
 
-    public ContentService getContentService() {
-        return contentService;
-    }
 
-    public void setContentService(ContentService contentService) {
+    /*public Optional<Conten> getContentByiD(Long id){
+
+            Optional<Conten>content = contentRepository.findById(id);
+
+            return Optional.of(content.get());
+    }*/
+
+   /* public void setContentService(ContentService contentService) {
         this.contentService = contentService;
-    }
+    }*/
 }

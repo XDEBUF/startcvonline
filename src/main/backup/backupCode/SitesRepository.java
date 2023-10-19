@@ -1,6 +1,5 @@
 package com.startcv.services.backupCode;
 
-import com.startcv.entities.SitesEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
